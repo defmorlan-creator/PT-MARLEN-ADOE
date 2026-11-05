@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PT MARLEN ADOE</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <h1>PT MARLEN ADOE</h1>
+    <p>Sistem Pencatatan Barang Masuk dan Keluar</p>
+  </header>
+
+  <main class="container">
+
+    <section class="summary">
+      <div class="card">
+        <span>Jenis Barang</span>
+        <h2 id="totalItems">19</h2>
+      </div>
+      <div class="card">
+        <span>Total Stok</span>
+        <h2 id="totalStock">0</h2>
+      </div>
+      <div class="card">
+        <span>Total Transaksi</span>
+        <h2 id="totalTransactions">0</h2>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Tambah Transaksi</h2>
+
+      <form id="inventoryForm">
+        <label for="date">Tanggal</label>
+        <input type="date" id="date" required>
+
+        <label for="item">Nama Barang</label>
+        <select id="item" required>
+          <option value="">-- Pilih Barang --</option>
+        </select>
+
+        <label for="type">Jenis Transaksi</label>
+        <select id="type" required>
+          <option value="masuk">Barang Masuk</option>
+          <option value="keluar">Barang Keluar</option>
+        </select>
+
+        <label for="quantity">Jumlah</label>
+        <input type="number" id="quantity" min="1" step="1"
+          placeholder="Masukkan jumlah barang" required>
+
+        <label for="notes">Keterangan</label>
+        <textarea id="notes" placeholder="Keterangan transaksi"></textarea>
+
+        <button type="submit" class="primary">Simpan Transaksi</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>Daftar Stok Barang</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama Barang</th>
+              <th>Stok</th>
+            </tr>
+          </thead>
+          <tbody id="stockTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Riwayat Transaksi</h2>
+
+      <div class="filters">
+        <input type="text" id="search" placeholder="Cari nama barang...">
+        <input type="date" id="filterDate">
+      </div>
+
+      <div class="actions">
+        <button type="button" id="pdfBtn" class="primary">Download PDF</button>
+        <button type="button" id="printBtn" class="secondary">Cetak Laporan</button>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Tanggal</th>
+              <th>Barang</th>
+              <th>Jenis</th>
+              <th>Jumlah</th>
+              <th>Keterangan</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="historyTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© MARLEN ADOE</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.4/jspdf.plugin.autotable.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

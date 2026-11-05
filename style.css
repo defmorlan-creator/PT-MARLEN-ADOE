@@ -1,0 +1,220 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f1f5f9;
+  color: #1e293b;
+}
+
+.header {
+  background: #102a43;
+  color: white;
+  text-align: center;
+  padding: 28px 15px;
+}
+
+.header h1 {
+  font-size: 27px;
+  margin-bottom: 8px;
+}
+
+.container {
+  width: 94%;
+  max-width: 1200px;
+  margin: 25px auto;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.card, .panel {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+}
+
+.card span {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.card h2 {
+  color: #0f766e;
+  font-size: 27px;
+  margin-top: 8px;
+}
+
+.panel {
+  margin-bottom: 20px;
+}
+
+.panel h2 {
+  font-size: 20px;
+  margin-bottom: 18px;
+  color: #102a43;
+}
+
+form {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  font-size: 14px;
+  background: white;
+}
+
+textarea {
+  min-height: 75px;
+  resize: vertical;
+}
+
+button {
+  border: none;
+  border-radius: 7px;
+  padding: 11px 16px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.primary {
+  background: #0f766e;
+  color: white;
+}
+
+.secondary {
+  background: #102a43;
+  color: white;
+}
+
+button:hover {
+  opacity: 0.88;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 550px;
+}
+
+th, td {
+  border-bottom: 1px solid #e2e8f0;
+  padding: 12px;
+  text-align: left;
+  font-size: 14px;
+}
+
+th {
+  background: #eaf2f7;
+  color: #102a43;
+}
+
+.filters, .actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.filters > * {
+  flex: 1;
+}
+
+.delete-btn {
+  background: #dc2626;
+  color: white;
+  padding: 7px 10px;
+}
+
+.incoming {
+  color: #15803d;
+  font-weight: bold;
+}
+
+.outgoing {
+  color: #dc2626;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #64748b;
+}
+
+@media (max-width: 650px) {
+  .summary {
+    grid-template-columns: 1fr;
+  }
+
+  .header h1 {
+    font-size: 22px;
+  }
+
+  .filters, .actions {
+    flex-direction: column;
+  }
+
+  .panel {
+    padding: 14px;
+  }
+}
+
+@media print {
+  body {
+    background: white;
+  }
+
+  .header {
+    color: black;
+    background: white;
+  }
+
+  .container {
+    width: 100%;
+    margin: 0;
+  }
+
+  .panel {
+    box-shadow: none;
+    border: 1px solid #ddd;
+    break-inside: avoid;
+  }
+
+  form, .filters, .actions, .delete-btn, footer {
+    display: none !important;
+  }
+
+  table {
+    min-width: 0;
+  }
+
+  th, td {
+    font-size: 10px;
+    padding: 6px;
+  }
+}
